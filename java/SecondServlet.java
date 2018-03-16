@@ -20,8 +20,17 @@ public class SecondServlet extends HttpServlet {
 		out.println("Second Servlet");
 	    
 		
-		HttpSession session=request.getSession();
-		String n=session.getAttribute("t1").toString();  
-	    out.print("Welcome "+n); 
+	/*	HttpSession session=request.getSession();
+		String n=session.getAttribute("t1").toString();*/ 
+		
+		String str=null;
+		for(Cookie cookie:cookies)
+		{
+			if(cookie.getName().equals("t1"))
+			{
+				str=cookie.getValue();
+			}
+		}
+	    out.print("Welcome "+str); 
 	} 
 }

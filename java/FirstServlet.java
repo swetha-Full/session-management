@@ -17,12 +17,13 @@ public class FirstServlet extends HttpServlet {
 		System.out.println(name);
 
 		
-		HttpSession session=request.getSession();
-		session.setAttribute("t1", name);
+		/*HttpSession session=request.getSession();
+		session.setAttribute("t1", name);*/
 		 
 		// RequestDispatcher rd=request.getRequestDispatcher("/second");
 		// rd.forward(request, response);
-
+		Cookie cookie=new Cookie("t1", name);
+		response.addCookie(cookie);
 		response.sendRedirect("/second");
 	}
 }
